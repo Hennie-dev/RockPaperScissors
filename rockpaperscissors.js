@@ -127,10 +127,6 @@ let playGame = () => {
         console.log(`Sorry! You lost! ${computerScore} - ${humanScore}`);
     else if(humanScore == 5)
         console.log(`Hooray, you won! ${humanScore} - ${computerScore}`);
-
-    const resultshow = document.querySelector('.result');
-    console.log(resultshow);
-    
 }
 
 playGame();
