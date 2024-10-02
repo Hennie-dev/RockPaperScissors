@@ -130,10 +130,19 @@ let playGame = () => {
         
     }
 
-    if(computerScore == 5)
+    if(computerScore == 5){
         console.log(`Sorry! You lost! ${computerScore} - ${humanScore}`);
-    else if(humanScore == 5)
+        let selector = document.querySelector('body');
+        let child = document.createElement('h1');
+        child.textContent = `Sorry! You lost! ${computerScore} - ${humanScore}`;
+        selector.appendChild(child);}
+
+    else if(humanScore == 5){
         console.log(`Hooray, you won! ${humanScore} - ${computerScore}`);
+        let selector = document.querySelector('body');
+        let child = document.createElement('h1');
+        child.textContent = `Hooray, you won! ${humanScore} - ${computerScore}`;
+        selector.appendChild(child);}
+
 }
 
-playGame();
