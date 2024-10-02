@@ -25,6 +25,7 @@ let getComputerChoice = () => {
 //function for human input, with recursion to trigger erroneous input catching.
 let getHumanChoice = () => {
     let humanChoice = prompt("Enter 'rock', 'paper, or 'scissors' as your choice.");
+    if(humanChoice == null){return "Quit";};
     let formattedChoice = humanChoice.toLowerCase();
 
     switch(formattedChoice){
@@ -91,6 +92,9 @@ let playRound = () => {
                 console.log(`It's a tie, ${humanChoice} and ${computerChoice} matches!`);
                 return "Tie";
             break;
+        case "Quit":
+            return "Quit";
+            break;
         default:
             return `Oops, something went wrong!`;
     }
@@ -117,6 +121,9 @@ let playGame = () => {
                 break
             case "Tie":
                 break;
+            case "Quit":
+                computerScore = computerScore + 5;
+                console.log("Player quit game.");
             default:
                 break;
         }
