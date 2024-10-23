@@ -1,3 +1,13 @@
+//UI elements
+const buttonContainer = document.querySelector(".buttonContainer");
+buttonContainer.addEventListener('click',(e)=>{interpretEvent(e);});
+let computerScore = 0;
+let humanScore = 0;
+
+const myscore = document.querySelector('#hscore');
+myscore.textContent = humanScore;
+const pcscore = document.querySelector('#cscore');
+pcscore.textContent = computerScore;
 
 //Function to get computer choice, with recursion to remove 0 results and only output 1 2 or 3
 let getComputerChoice = () => {
@@ -23,8 +33,8 @@ let getComputerChoice = () => {
 
 };
 //function for human input, with recursion to trigger erroneous input catching.
-let getHumanChoice = () => {
-    let humanChoice = prompt("Enter 'rock', 'paper, or 'scissors' as your choice.");
+let getHumanChoice = (trigger) => {
+    let humanChoice = trigger;
     if(humanChoice == null){return "Quit";};
     let formattedChoice = humanChoice.toLowerCase();
 
@@ -47,9 +57,9 @@ let getHumanChoice = () => {
 
 //Function to play a round
 
-let playRound = () => {
+let playRound = (trigger) => {
 
-    let humanChoice = getHumanChoice();
+    let humanChoice = getHumanChoice(trigger);
     let computerChoice = getComputerChoice();
 
     switch(humanChoice){
@@ -100,49 +110,63 @@ let playRound = () => {
     }
 }
 
-//Function to play a game of five rounds
+//eventListerner method
 
-let playGame = () => {
+const interpretEvent = (e) => {
+    const trigger = e.target;
+    
 
-    let computerScore = 0;
-    let humanScore =0;
-
-    while(computerScore < 5 && humanScore <5){
-        let result = playRound();
-
-        switch(result){
-            case "Win":
-                humanScore++;
-                console.log(`Scoring: You ${humanScore}, Computer: ${computerScore}`);
-                break;
-            case "Lose":
-                computerScore++;
-                console.log(`Scoring: You ${humanScore}, Computer: ${computerScore}`);
-                break
-            case "Tie":
-                break;
-            case "Quit":
-                computerScore = computerScore + 5;
-                console.log("Player quit game.");
-            default:
-                break;
-        }
-        
+    switch(trigger.id){
+        case 'rock':
+            let result = playRound('rock');
+            switch(result){
+                case "Win":
+                    humanScore++;
+                    myscore.textContent = humanScore;
+                    break;
+                case "Lose":
+                    computerScore++;
+                    pcscore.textContent = computerScore;
+                case "Tie":
+                    break;
+                default:
+                    break;
+            }
+            break;
+        case 'paper':
+            let result2 = playRound('paper');
+            switch(result2){
+                case "Win":
+                    humanScore++;
+                    myscore.textContent = humanScore;
+                    break;
+                case "Lose":
+                    computerScore++;
+                    pcscore.textContent = computerScore;
+                case "Tie":
+                    break;
+                default:
+                    break;
+            }
+            break;
+        case 'scissors':
+            let result3 = playRound('scissors');
+            switch(result3){
+                case "Win":
+                    humanScore++;
+                    myscore.textContent = humanScore;
+                    break;
+                case "Lose":
+                    computerScore++;
+                    pcscore.textContent = computerScore;
+                case "Tie":
+                    break;
+                default:
+                    break;
+            }
+            break;
+        default:
+            alert('Something went wrong.');
+            break;
     }
-
-    if(computerScore == 5){
-        console.log(`Sorry! You lost! ${computerScore} - ${humanScore}`);
-        let selector = document.querySelector('body');
-        let child = document.createElement('h1');
-        child.textContent = `Sorry! You lost! ${computerScore} - ${humanScore}`;
-        selector.appendChild(child);}
-
-    else if(humanScore == 5){
-        console.log(`Hooray, you won! ${humanScore} - ${computerScore}`);
-        let selector = document.querySelector('body');
-        let child = document.createElement('h1');
-        child.textContent = `Hooray, you won! ${humanScore} - ${computerScore}`;
-        selector.appendChild(child);}
-
 }
-

@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <script src="./rockpaperscissors.js"></script>
+        <script src="./rockpaperscissors.js" defer></script>
         <link href="./style.css" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Rock Paper Scissors</title>
@@ -10,7 +10,14 @@
     <body>
         <button onclick=playGame()>Play Game!</button>
         <h1>Rock Paper Scissors</h1>
-        <h2>To play the game, open the console by pressing F12.</h2>
+        <h2>Human Score: <div id="hscore"></div></h2>
+        <h2>Computer Score: <div id="cscore"></div></h2>
+        <div id="result"></div>
+        <div class = "buttonContainer">
+            <button id="rock">Rock</button>
+            <button id="paper">Paper</button>
+            <button id="scissors">Scissors</button>
+        </div>
     </body>
 </html>
 
