@@ -146,7 +146,7 @@ let playRound = (trigger) => {
 
 const interpretEvent = (e) => {
     const trigger = e.target;
-
+    console.log('Triggered!');
     if(humanScore < 5 && computerScore < 5)
     {
         switch(trigger.id){
@@ -208,7 +208,7 @@ const interpretEvent = (e) => {
         modal.style.display = 'block';
         finalMessage.textContent= "You won!";
     } else
-    if(pcscore == 5){
+    if(computerScore == 5){
         modal.style.display = 'block';
         finalMessage.textContent="Sorry! You lost!";
     }
