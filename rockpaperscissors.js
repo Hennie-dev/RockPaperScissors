@@ -11,6 +11,8 @@ pcscore.textContent = computerScore;
 const humanPic = document.querySelector('#HumanChoicePic');
 const compPic = document.querySelector('#ComputerChoicePic');
 const feedback = document.querySelector('#Feedback');
+const modal = document.querySelector('.modal');
+const finalMessage = document.querySelector('#finalMessage');
 
 //Function to get computer choice, with recursion to remove 0 results and only output 1 2 or 3
 let getComputerChoice = () => {
@@ -197,10 +199,19 @@ const interpretEvent = (e) => {
                 }
                 break;
             default:
-                alert('Something went wrong.');
+                console.log('Div was clicked instead of button.');
                 break;
             }
-    } else reset();
+    }
+     
+    if(humanScore == 5){
+        modal.style.display = 'block';
+        finalMessage.textContent= "You won!";
+    } else
+    if(pcscore == 5){
+        modal.style.display = 'block';
+        finalMessage.textContent="Sorry! You lost!";
+    }
 }
 
 //Reset game
@@ -213,5 +224,6 @@ const reset = () => {
     pcscore.textContent = computerScore;
     humanPic.setAttribute('src', 'https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExY3ozNHBnMXY0bGxqcnhpN3g5bXJ2ZHk1c2RuZG9hZnJqbWp4a2dueiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7bu3XilJ5BOiSGic/giphy.webp');
     compPic.setAttribute('src', 'https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExY3ozNHBnMXY0bGxqcnhpN3g5bXJ2ZHk1c2RuZG9hZnJqbWp4a2dueiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7bu3XilJ5BOiSGic/giphy.webp');
-
+    modal.style.display = 'none';
+    finalMessage.textContent = '';
 }

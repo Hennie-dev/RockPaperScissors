@@ -8,6 +8,10 @@
         <title>Rock Paper Scissors</title>
     </head>
     <body>
+        <div class="modal">
+            <span id="closeModal">x</span>
+            <h1 id="finalMessage"></h1>
+        </div>
         <button onclick="reset()">Reset</button>
         <h1>Rock Paper Scissors</h1>
         <h2 id="Feedback">Please choose a move...</h2>
@@ -15,11 +19,11 @@
         <h2>Computer Score: <span id="cscore"></span></h2>
         <div id="result"></div>
         <div class = "buttonContainer">
-            <button id="rock">Rock</button>
-            <button id="paper">Paper</button>
-            <button id="scissors">Scissors</button>
+            <button id="rock"></button>
+            <button id="paper"></button>
+            <button id="scissors"></button>
         </div>
-        <div>
+        <div id="resultPics">
             <span>
                 <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExY3ozNHBnMXY0bGxqcnhpN3g5bXJ2ZHk1c2RuZG9hZnJqbWp4a2dueiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7bu3XilJ5BOiSGic/giphy.webp" id="HumanChoicePic" height="300px" width="300px">
             </span>
