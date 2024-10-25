@@ -144,61 +144,63 @@ let playRound = (trigger) => {
 
 const interpretEvent = (e) => {
     const trigger = e.target;
-    
 
-    switch(trigger.id){
-        case 'rock':
-            let result = playRound('rock');
-            switch(result){
-                case "Win":
-                    humanScore++;
-                    myscore.textContent = humanScore;
-                    break;
-                case "Lose":
-                    computerScore++;
-                    pcscore.textContent = computerScore;
-                case "Tie":
-                    break;
-                default:
-                    break;
+    if(humanScore < 5 && computerScore < 5)
+    {
+        switch(trigger.id){
+            case 'rock':
+                let result = playRound('rock');
+                switch(result){
+                    case "Win":
+                        humanScore++;
+                        myscore.textContent = humanScore;
+                        break;
+                    case "Lose":
+                        computerScore++;
+                        pcscore.textContent = computerScore;
+                    case "Tie":
+                        break;
+                    default:
+                        break;
+                }
+                break;
+            case 'paper':
+                let result2 = playRound('paper');
+                switch(result2){
+                    case "Win":
+                        humanScore++;
+                        myscore.textContent = humanScore;
+                        break;
+                    case "Lose":
+                        computerScore++;
+                        pcscore.textContent = computerScore;
+                    case "Tie":
+                        break;
+                    default:
+                        break;
+                }
+                break;
+            case 'scissors':
+                let result3 = playRound('scissors');
+                switch(result3){
+                    case "Win":
+                        humanScore++;
+                        myscore.textContent = humanScore;
+                        break;
+                    case "Lose":
+                        computerScore++;
+                        pcscore.textContent = computerScore;
+                    case "Tie":
+                        break;
+                    default:
+                        break;
+                }
+                break;
+            default:
+                alert('Something went wrong.');
+                break;
             }
-            break;
-        case 'paper':
-            let result2 = playRound('paper');
-            switch(result2){
-                case "Win":
-                    humanScore++;
-                    myscore.textContent = humanScore;
-                    break;
-                case "Lose":
-                    computerScore++;
-                    pcscore.textContent = computerScore;
-                case "Tie":
-                    break;
-                default:
-                    break;
-            }
-            break;
-        case 'scissors':
-            let result3 = playRound('scissors');
-            switch(result3){
-                case "Win":
-                    humanScore++;
-                    myscore.textContent = humanScore;
-                    break;
-                case "Lose":
-                    computerScore++;
-                    pcscore.textContent = computerScore;
-                case "Tie":
-                    break;
-                default:
-                    break;
-            }
-            break;
-        default:
-            alert('Something went wrong.');
-            break;
-    }
+    } else reset();
 }
 
 //Reset game
