@@ -8,6 +8,9 @@ const myscore = document.querySelector('#hscore');
 myscore.textContent = humanScore;
 const pcscore = document.querySelector('#cscore');
 pcscore.textContent = computerScore;
+const humanPic = document.querySelector('#HumanChoicePic');
+const compPic = document.querySelector('#ComputerChoicePic');
+const feedback = document.querySelector('#Feedback');
 
 //Function to get computer choice, with recursion to remove 0 results and only output 1 2 or 3
 let getComputerChoice = () => {
@@ -66,40 +69,67 @@ let playRound = (trigger) => {
         case "rock":
             if(computerChoice == 'paper'){
                 console.log(`You lose! ${computerChoice} beats ${humanChoice}!`);
+                feedback.textContent = `You lose! ${computerChoice} beats ${humanChoice}!`;
+                humanPic.setAttribute('src', './Resources/Rock.png');
+                compPic.setAttribute('src', './Resources/Paper.png');
                 return "Lose";
             }
             else if(computerChoice == 'scissors'){
                 console.log(`You win! ${humanChoice} beats ${computerChoice}!`);
+                feedback.textContent = `You win! ${humanChoice} beats ${computerChoice}!`;
+                humanPic.setAttribute('src', './Resources/Rock.png');
+                compPic.setAttribute('src', './Resources/Scissors.png');
                 return 'Win';
             }
             else
                 console.log(`It's a tie, ${humanChoice} and ${computerChoice} matches!`);
+                feedback.textContent = `It's a tie, ${humanChoice} and ${computerChoice} matches!`;
+                humanPic.setAttribute('src', './Resources/Rock.png');
+                compPic.setAttribute('src', './Resources/Rock.png');
                 return "Tie";
             break;
         case "paper":
             if(computerChoice == 'scissors'){
                 console.log(`You lose! ${computerChoice} beats ${humanChoice}!`);
+                feedback.textContent = `You lose! ${computerChoice} beats ${humanChoice}!`;
+                humanPic.setAttribute('src', './Resources/Paper.png');
+                compPic.setAttribute('src', './Resources/Scissors.png');
                 return "Lose";
             }
             else if(computerChoice == 'rock'){
                 console.log(`You win! ${humanChoice} beats ${computerChoice}!`);
+                feedback.textContent = `You win! ${humanChoice} beats ${computerChoice}!`;
+                humanPic.setAttribute('src', './Resources/Paper.png');
+                compPic.setAttribute('src', './Resources/Rock.png');
                 return 'Win';
             }
             else
                 console.log(`It's a tie, ${humanChoice} and ${computerChoice} matches!`);
+                feedback.textContent = `It's a tie, ${humanChoice} and ${computerChoice} matches!`;
+                humanPic.setAttribute('src', './Resources/Paper.png');
+                compPic.setAttribute('src', './Resources/Paper.png');
                 return "Tie";
             break;
         case "scissors":
             if(computerChoice == 'rock'){
                 console.log(`You lose! ${computerChoice} beats ${humanChoice}!`);
+                feedback.textContent = `You lose! ${computerChoice} beats ${humanChoice}!`;
+                humanPic.setAttribute('src', './Resources/Scissors.png');
+                compPic.setAttribute('src', './Resources/Rock.png');
                 return "Lose";
             }
             else if(computerChoice == 'paper'){
                 console.log(`You win! ${humanChoice} beats ${computerChoice}!`);
+                feedback.textContent = `You win! ${humanChoice} beats ${computerChoice}!`;
+                humanPic.setAttribute('src', './Resources/Scissors.png');
+                compPic.setAttribute('src', './Resources/Paper.png');
                 return 'Win';
             }
             else
                 console.log(`It's a tie, ${humanChoice} and ${computerChoice} matches!`);
+                feedback.textContent = `It's a tie, ${humanChoice} and ${computerChoice} matches!`;
+                humanPic.setAttribute('src', './Resources/Scissors.png');
+                compPic.setAttribute('src', './Resources/Scissors.png');
                 return "Tie";
             break;
         case "Quit":
@@ -169,4 +199,17 @@ const interpretEvent = (e) => {
             alert('Something went wrong.');
             break;
     }
+}
+
+//Reset game
+const reset = () => {
+
+    humanScore = 0;
+    computerScore = 0;
+    feedback.textContent = "Please choose a move...";
+    myscore.textContent = humanScore;
+    pcscore.textContent = computerScore;
+    humanPic.setAttribute('src', 'https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExY3ozNHBnMXY0bGxqcnhpN3g5bXJ2ZHk1c2RuZG9hZnJqbWp4a2dueiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7bu3XilJ5BOiSGic/giphy.webp');
+    compPic.setAttribute('src', 'https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExY3ozNHBnMXY0bGxqcnhpN3g5bXJ2ZHk1c2RuZG9hZnJqbWp4a2dueiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7bu3XilJ5BOiSGic/giphy.webp');
+
 }
